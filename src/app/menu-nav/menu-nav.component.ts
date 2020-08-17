@@ -9,7 +9,6 @@ import {MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition}
 export class MenuNavComponent implements OnInit {
   @Input() message: string;
   myFavorite: boolean = false;
-  heartIcon: string = 'favorite_border';
 
   horizontalPosition: MatSnackBarHorizontalPosition = 'center';
   verticalPosition: MatSnackBarVerticalPosition = 'top';

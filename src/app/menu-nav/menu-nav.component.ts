@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import {MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition} from '@angular/material/snack-bar';
+import { MatSidenav } from '@angular/material/sidenav';
 
 @Component({
   selector: 'app-menu-nav',
@@ -7,7 +8,7 @@ import {MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition}
   styleUrls: ['./menu-nav.component.css']
 })
 export class MenuNavComponent implements OnInit {
-  @Input() message: string;
+  @Input() inputSideNav: MatSidenav;
   myFavorite: boolean = false;
 
   horizontalPosition: MatSnackBarHorizontalPosition = 'center';
@@ -17,22 +18,10 @@ export class MenuNavComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
-  teste() {
-    console.log(this.message);
-  }
   
-  toggleFavorite(): void {
-    let message: string;
-
+  toggleFavorite(message: string, actionMessage: string): void {
     this.myFavorite = !this.myFavorite;
-
-    if (this.myFavorite) 
-      message = "Adicionado aos Favoritos";
-    else 
-      message = "Retirado dos Favoritos";
-      
-      this.showMessage(message, 'Fechar');
+    this.showMessage(message, actionMessage);
   }
 
   private showMessage(message: string, action: string): void {
